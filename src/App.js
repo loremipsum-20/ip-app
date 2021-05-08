@@ -2,9 +2,12 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import  Card from './components/Card/Card.js'
+import Map from "./components/Map/Map.js";
 
 function App() {
   const [ipAddress, setIpAddress] = useState("");
+  const [lat, setLat] = useState("");
+  const [lng, setLng] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
 useEffect(() => {
@@ -14,7 +17,9 @@ useEffect(() => {
   if(response.ok)
   {
     const jsonResponse = await response.json();
-    setIpAddress(jsonResponse.ip)
+    setIpAddress(jsonResponse.ip);
+    setLat(jsonResponse.location.lat);
+    setLng(jsonResponse.location.lng);
     console.log(jsonResponse);
     setIsLoading(false);
     return;
@@ -28,8 +33,6 @@ useEffect(() => {
 }, []);
 
 
-
-
   return (
     <div className="App">
       <header className="App-header">
@@ -38,7 +41,18 @@ useEffect(() => {
         </h1>
       </header>
       <main>
-      <Card ipAddress={ipAddress} isLoading={isLoading}/>
+      {isLoading ? (
+        <div>
+        <p>Loading IP address...</p>
+        <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+      ) : (
+        <div>
+        <Card ipAddress={ipAddress} />
+        <Map lat={lat} lng={lng} />
+        </div>
+      )
+      }
       </main>
     </div>
   );
