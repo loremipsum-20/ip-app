@@ -48,8 +48,8 @@ useEffect(() => {
         </div>
       ) : (
         <div>
-        <Card ipAddress={ipAddress} />
-        <Map lat={lat} lng={lng} />
+        <Map className="mapContainer" lat={lat} lng={lng} />
+        <Card className="card" ipAddress={ipAddress} />
         </div>
       )
       }
