@@ -64,7 +64,7 @@ useEffect(() => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>
+        <h1><i className="fa fa-map-marker"></i>
           What is my IP?
         </h1>
       </header>
@@ -82,6 +82,9 @@ useEffect(() => {
       )
       }
       </main>
+      <footer>
+        <p>© 2021</p>
+      </footer>
     </div>
   );
 }
