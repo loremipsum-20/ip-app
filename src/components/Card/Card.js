@@ -14,7 +14,8 @@ export default function Card({ ipAddress, city, flag, country }) {
     </div>
     <h3>Your IP address is: {ipAddress}</h3>
           <p>You are located in {city}, {country}</p>
-          <p>{localDateTime}</p>
+          <hr/>
+          <p className="date">{localDateTime}</p>
 
     </div>
   )

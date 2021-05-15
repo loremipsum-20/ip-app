@@ -41,6 +41,8 @@ useEffect(() => {
 useEffect(() => {
   const getInfo = async () => {
     try {
+      if(countryCode === "") return;
+      console.log(countryCode);
       const response = await fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode}`);
         if(response.ok)
         {

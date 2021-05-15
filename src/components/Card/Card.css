@@ -1,12 +1,33 @@
 .card {
   position: absolute;
   top: 30%;
-  left: 35%;
+  left: 25%;
   background-color: white;
   text-align: center;
-  width: 30%;
+  width: 50%;
 }
 
 .flag{
   max-width: 100%;
+}
+
+hr {
+  height: 0.5px;
+  background-color: lightgrey;
+}
+
+.date {
+  color: grey;
+  font-size: 14px;
+}
+
+@media (min-width: 800px) {
+  .card {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    background-color: white;
+    text-align: center;
+    width: 30%;
+  }
 }
