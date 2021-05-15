@@ -1,0 +1,12 @@
+.card {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  background-color: white;
+  text-align: center;
+  width: 30%;
+}
+
+.flag{
+  max-width: 100%;
+}

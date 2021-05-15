@@ -9,6 +9,10 @@ function App() {
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [countryCode, setCountryCode] = useState ("");
+  const [country, setCountry] = useState ("");
+  const [city, setCity] = useState ("");
+  const [flag, setFlag] = useState ("");
 
 useEffect(() => {
   const getIP = async () => {
@@ -20,6 +24,8 @@ useEffect(() => {
     setIpAddress(jsonResponse.ip);
     setLat(jsonResponse.location.lat);
     setLng(jsonResponse.location.lng);
+    setCountryCode(jsonResponse.location.country);
+    setCity(jsonResponse.location.city);
     console.log(jsonResponse);
     setIsLoading(false);
     return;
@@ -31,6 +37,26 @@ useEffect(() => {
   }
   getIP();
 }, []);
+
+useEffect(() => {
+  const getInfo = async () => {
+    try {
+      const response = await fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode}`);
+        if(response.ok)
+        {
+          const jsonResponse = await response.json();
+          console.log(jsonResponse)
+          setCountry(jsonResponse.name)
+          setFlag(jsonResponse.flag)
+          return;
+        }
+    }
+    catch (error){
+      console.log(error);
+    }
+  }
+  getInfo();
+},[countryCode]);
 
 
   return (
@@ -48,8 +74,8 @@ useEffect(() => {
         </div>
       ) : (
         <div>
-        <Map className="mapContainer" lat={lat} lng={lng} />
-        <Card className="card" ipAddress={ipAddress} />
+        <Map lat={lat} lng={lng} />
+        <Card ipAddress={ipAddress} city={city} flag={flag} country={country} />
         </div>
       )
       }
