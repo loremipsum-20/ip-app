@@ -6,7 +6,7 @@ function Map({ lat, lng }) {
   const position = [lat, lng];
 
   return (
-    <MapContainer center={position} zoom={12} scrollWheelZoom={false}
+    <MapContainer center={position} zoom={12} scrollWheelZoom={true}
     className="mapContainer">
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

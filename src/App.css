@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #354f52;
   min-height: 40px;
   display: flex;
   flex-direction: column;
@@ -25,27 +25,10 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #282c34;
+  background-color: #354f52;
   color: white;
   text-align: center;
   font-size: 12px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
-
-/*.mapContainer {
-  position: relative;
-  z-index: -1;
-  height: 100vh;
-  width: 100%;
-}
-
-.card {
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  background-color: white;
-  text-align: center;
-  width: 50%;
-}
-*/
